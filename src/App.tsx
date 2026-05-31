@@ -1,5 +1,11 @@
+import LocalStorageDemo from "./LocalStorageDemo";
+
 function App() {
-  return <div>App</div>;
+  return (
+    <>
+      <LocalStorageDemo />
+    </>
+  );
 }
 
 export default App;
