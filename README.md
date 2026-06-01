@@ -15,3 +15,25 @@ const [todos, setTodos, removeTodos] = useLocalStorage<Todo[]>(
   initialTodos // initial value
 );
 ```
+
+## `useCounter` Demo
+
+![alt text](public/20260601-1831-07.2396943.gif)
+
+````typescript
+const [delay, setDelay] = useState(1000);
+const count = useCounter(delay);
+````
+
+````typescript
+export function useCounter(delay: number) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount((c) => c + 1);
+    }, delay);
+    return () => clearInterval(id);
+  }, [delay]);
+  return count;
+}
+````

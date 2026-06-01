@@ -6,7 +6,10 @@ export default function useLocalStorage<T>(key: string, initialValue: T) {
     // check if the key already exists
     const item = localStorage.getItem(key);
 
-    if (!item) return initialValue;
+    if (!item){
+      localStorage.setItem(key, JSON.stringify(initialValue));
+      return initialValue;
+    } 
     try {
       return JSON.parse(item);
     } catch {
